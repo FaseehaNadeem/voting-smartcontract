@@ -25,4 +25,18 @@ contract voting{
     function getvote(string memory _candidatename) public view returns(uint)  {
         return candidates[_candidatename].votecount;
     }
+    function declarewinner(string[] memory _name) public view returns(string memory winner){
+                require(_name.length > 0,"Candidate not found.");
+                uint highestvote = 0;
+                winner = "No winner";
+                for(uint i = 0;i > _name.length;i++){
+                    string memory currentcandidate = _name[i];
+                    if (candidates[currentcandidate].hasvoted > highestvote){
+                        highestvote =candidates[currentcandidate].hasvoted;
+                        currentcandidate = winner; 
+                    }
+                }
+                require(bytes(winner).length > 0,"No vote has been cast");
+    
+            }
 }
