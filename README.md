@@ -39,7 +39,22 @@ function getvote(string memory _candidatename) public view returns(uint)
 - Takes the candidate's name as input.
 
 ---
+### 4. **DeclareWinner Function**
+The declareWinner function finds and returns the name of the candidate with the highest votes. If no votes have been cast, it returns "No winner".
 
+How It Works
+Input:
+
+Takes a list of candidate names (string[] memory _name).
+Logic:
+
+Starts with highestVote = 0 and winner = "No winner".
+Checks if the input list is empty, throws an error if true.
+Loops through candidates, compares their votes, and updates the winner if a candidate has more votes.
+Output:
+
+Returns the name of the candidate with the highest votes.
+If no votes were cast, returns "No winner".
 ## How It Works
 
 1. **Deploying the Contract**:
